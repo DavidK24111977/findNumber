@@ -8,6 +8,12 @@ body{
     text-align: center;
 }
 #result{
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
+}
+.is-hide{
+    display: none;
+}
+.is-show{
+    display: block;
 }
