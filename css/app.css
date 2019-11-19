@@ -1,0 +1,13 @@
+body{
+    padding-bottom: 50px;
+}
+#form{
+    display: none;
+}
+#levelContent{
+    text-align: center;
+}
+#result{
+    font-size: 3em;
+    text-align: center;
+}
