@@ -2,6 +2,7 @@ var levelContent = document.getElementById("levelContent");
 var result = document.getElementById("result");
 var proposition = document.getElementById("proposition");
 var propositionBtn = document.getElementById("propositionBtn");
+var alert = document.getElementById("alert");
 var replay = document.getElementById("replay");
 var formContent = document.getElementById("formContent");
 var levelBtn = document.getElementsByClassName("level");
@@ -26,41 +27,58 @@ for(var btn of levelBtn){
     }
 }
 propositionBtn.onclick=function(){
+    if(proposition.value > 0 && proposition.value <= limit){
+        alert.classList.add('is-hide');
+        alert.classList.remove('is-show');
+        counter++;
+        tries=maxTry-counter;
+        if(proposition.value > tofind && tries > 0){
+            setMessage(tries)
+            result.innerHTML="Le chiffre proposé est trop grand, "+message;
+            listNumber.push(proposition.value);
+            showNumbers();
 
-    counter++;
-    tries=maxTry-counter;
-    if(proposition.value > tofind && tries > 0){
-        setMessage(tries)
-        result.innerHTML="Le chiffre proposé est trop grand, "+message;
-        listNumber.push(proposition.value);
-        showNumbers();
-
-    } else if (proposition.value < tofind && tries > 0){
-        setMessage(tries)
-        result.innerHTML="Le chiffre proposé est trop petit, "+message;
-        listNumber.push(proposition.value);
-        showNumbers();
-    } else if (proposition.value == tofind && tries >= 0){
-        tries=0;
-        togggleVisibility(formContent);
-        togggleVisibility(replay);
-        listNumber.push(proposition.value);
-        showNumbers(true);
-        if(counter === 1){
-            result.innerHTML=`Vous avez gagné ! En ${counter} essai`;
+        } else if (proposition.value < tofind && tries > 0){
+            setMessage(tries)
+            result.innerHTML="Le chiffre proposé est trop petit, "+message;
+            listNumber.push(proposition.value);
+            showNumbers();
+        } else if (proposition.value == tofind && tries >= 0){
+            tries=0;
+            togggleVisibility(formContent);
+            togggleVisibility(replay);
+            listNumber.push(proposition.value);
+            showNumbers(true);
+            if(counter === 1){
+                result.innerHTML=`Vous avez gagné ! En ${counter} essai`;
+            } else {
+                result.innerHTML=`Vous avez gagné ! En ${counter} essais`;
+            }
         } else {
-            result.innerHTML=`Vous avez gagné ! En ${counter} essais`;
+            result.innerHTML="Désolé vous avez perdu, le chiffre correct était le " + tofind;
+            listNumber.push(proposition.value);
+            showNumbers();
+            togggleVisibility(formContent);
+            togggleVisibility(replay);
         }
-    } else {
-        result.innerHTML="Désolé vous avez perdu, le chiffre correct était le " + tofind;
-        listNumber.push(proposition.value);
-        showNumbers();
-        togggleVisibility(formContent);
-        togggleVisibility(replay);
+    } else{
+        alert.classList.add('is-show');
+        alert.classList.remove('is-hide');
     }
-
 };
 
+document.getElementById("replayBtn").onclick=function(){
+    playGame();
+    togggleVisibility(formContent);
+    togggleVisibility(replay);
+    listNumber=[];
+    result.innerHTML='';
+    showNumbers();
+    counter=0;
+    maxTry=3;
+    tries=maxTry-counter;
+    proposition.value="";
+};
 
 
 function setMessage(tries){

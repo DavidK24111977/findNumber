@@ -30,6 +30,9 @@
     <div id="form" class="text-center">
         <div class="row">
             <div class="col-md-6 offset-md-3 is-show" id="formContent">
+                <div class="alert alert-danger is-hide" role="alert" id="alert">
+                    Vous n'avez pas choisi un chiffre dans les limites autorisées
+                </div>
                 <div class="form-group">
                     <input type="number" class="form-control" placeholder="Votre nombre" id="proposition">
                 </div>
@@ -40,7 +43,7 @@
             <div class="col-md-6 offset-md-3" id="result">
             </div>
             <div class="col-md-6 offset-md-3 is-hide" id="replay">
-                <button class="btn btn-primary" id="replayBtn">Rejouer</button>
+                <button class="btn btn-primary mt-5" id="replayBtn">Rejouer</button>
             </div>
             <div class="col-md-3">
                 <h4>Chiffres proposés</h4>
