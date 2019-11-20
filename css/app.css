@@ -25,3 +25,16 @@ h1{
 .btn,.btn-lg{
     border-radius: 0.1rem;
 }
+
+.up{
+    background-color: #8e071d;
+    color: #fff;
+}
+.down{
+    background-color: #7bb7da;
+    color: #222;
+}
+.goal{
+    background-color: #095d23;
+    color: #fff;
+}

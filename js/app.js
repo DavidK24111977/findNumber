@@ -15,7 +15,8 @@ var limitPgm=500;
 var counter=0;
 var maxTry=8;
 var tries=maxTry-counter;
-
+var li;
+var color;
 var listNumber=[];
 
 
@@ -62,22 +63,25 @@ propositionBtn.onclick=function(){
         counter++;
         tries=maxTry-counter;
         if(proposition.value > tofind && tries > 0){
+            color = 'up';
             setMessage(tries)
             result.innerHTML="Le chiffre proposé est trop grand, "+message;
             listNumber.push(proposition.value);
-            showNumbers();
+            showNumbers(color);
 
         } else if (proposition.value < tofind && tries > 0){
+            color = 'down';
             setMessage(tries)
             result.innerHTML="Le chiffre proposé est trop petit, "+message;
             listNumber.push(proposition.value);
-            showNumbers();
+            showNumbers(color);
         } else if (proposition.value == tofind && tries >= 0){
             tries=0;
             togggleVisibility(formContent);
             togggleVisibility(replay);
             listNumber.push(proposition.value);
-            showNumbers(true);
+            color = 'goal';
+            showNumbers(color);
             setResults(counter);
             results=[
                 parseInt(readCookie("result1")),
@@ -93,7 +97,7 @@ propositionBtn.onclick=function(){
         } else {
             result.innerHTML="Désolé vous avez perdu, le chiffre correct était le " + tofind;
             listNumber.push(proposition.value);
-            showNumbers();
+            showNumbers(color);
             togggleVisibility(formContent);
             togggleVisibility(replay);
         }
@@ -114,7 +118,7 @@ document.getElementById("replayBtn").onclick=function(){
     togggleVisibility(formContent);
     listNumber=[];
     result.innerHTML='';
-    showNumbers();
+    document.getElementById("listNumber").innerHTML=""
     proposition.value="";
 };
 
@@ -132,11 +136,20 @@ function togggleVisibility(e){
     e.classList.toggle('is-show');
 }
 
-function showNumbers(){
-    document.getElementById("listNumber").innerHTML="";
+function showNumbers(color){
+    //document.getElementById("listNumber").innerHTML="";
+    li = document.createElement("li");
     for(ar of listNumber){
-        var li = document.createElement("li");
-        li.setAttribute("class","list-group-item");
+
+        if(color == 'up'){
+            li.setAttribute("class","list-group-item up");
+        } else if(color == 'down'){
+            li.setAttribute("class","list-group-item down");
+        } else if(color == 'goal'){
+            li.setAttribute("class","list-group-item goal");
+        } else{
+            li.setAttribute("class","list-group-item");
+        }
         li.innerHTML=ar;
         document.getElementById("listNumber").appendChild(li);
     }
