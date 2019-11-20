@@ -196,7 +196,7 @@ function refreshResults(){
         if(chart != 99){
             var li = document.createElement("li");
             li.setAttribute("class","list-group-item");
-            li.innerHTML=chart+' essais (Niveau: '+level+')';
+            li.innerHTML=chart+' essais';
             document.getElementById("charts").appendChild(li);
         }
     }
