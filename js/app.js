@@ -6,6 +6,7 @@ var alert = document.getElementById("alert");
 var replay = document.getElementById("replay");
 var formContent = document.getElementById("formContent");
 var levelBtn = document.getElementsByClassName("level");
+var listNumberContent = document.getElementById("listNumberContent");
 var level="";
 var tofind;
 var limit;
@@ -30,6 +31,9 @@ propositionBtn.onclick=function(){
     if(proposition.value > 0 && proposition.value <= limit){
         alert.classList.add('is-hide');
         alert.classList.remove('is-show');
+        listNumberContent.classList.add('is-show');
+        listNumberContent.classList.remove('is-hide');
+
         counter++;
         tries=maxTry-counter;
         if(proposition.value > tofind && tries > 0){

@@ -6,23 +6,24 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Jura&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
-    <title>Title</title>
+    <title>Find a number</title>
 
 </head>
 <body>
 <div class="container text-center">
-    <h1>Find a number</h1>
+    <h1 class="mb-5">Find a number</h1>
     <div class="text-center" id="levelContent">
         <div class="row">
             <div class="col-md-12">
-                <h2>Quel est votre niveau?</h2>
+                <h2 class="mb-5">Quel est votre niveau?</h2>
             </div>
-            <div class="col-md-6">
-                <button class="btn btn-primary level">Noob</button>
+            <div class="col-md-3 offset-md-3  mb-4">
+                <button class="btn btn-primary btn-lg level">Noob</button>
             </div>
-            <div class="col-md-6">
-                <button class="btn btn-primary level">PGM</button>
+            <div class="col-md-3 mb-4">
+                <button class="btn btn-primary btn-lg  level">PGM</button>
             </div>
         </div>
     </div>
@@ -40,18 +41,20 @@
                     <button class="btn btn-primary" id="propositionBtn">Soumettre</button>
                 </div>
             </div>
-            <div class="col-md-6 offset-md-3" id="result">
+            <div class="col-md-6 offset-md-3 mb-5" id="result">
             </div>
             <div class="col-md-6 offset-md-3 is-hide" id="replay">
-                <button class="btn btn-primary mt-5" id="replayBtn">Rejouer</button>
+                <button class="btn btn-primary mt-5 mb-5" id="replayBtn">Rejouer</button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 offset-md-3 is-hide" id="listNumberContent">
                 <h4>Chiffres proposés</h4>
                 <ul class="list-group" id="listNumber">
 
-                </ul>
 
+                </ul>
             </div>
+
+
         </div>
     </div>
 </div>

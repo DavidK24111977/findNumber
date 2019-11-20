@@ -1,5 +1,12 @@
 body{
-    padding-bottom: 50px;
+    padding-top: 50px;
+    font-family: 'Jura', sans-serif;
+
+}
+h1{
+    font-size:4em;
+    background-color: #007bff;
+    color: #fff;
 }
 #form{
     display: none;
@@ -16,4 +23,7 @@ body{
 }
 .is-show{
     display: block;
+}
+.btn,.btn-lg{
+    border-radius: 0.1rem;
 }
