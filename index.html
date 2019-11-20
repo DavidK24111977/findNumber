@@ -14,7 +14,7 @@
 <body>
 <div class="container text-center">
     <h1 class="mb-5">Find a number</h1>
-    <div class="text-center" id="levelContent">
+    <div class="text-center is-show" id="levelContent">
         <div class="row">
             <div class="col-md-12">
                 <h2 class="mb-5">Quel est votre niveau?</h2>
@@ -28,12 +28,13 @@
         </div>
     </div>
 
-    <div id="form" class="text-center">
+    <div class="text-center">
         <div class="row">
-            <div class="col-md-6 offset-md-3 is-show" id="formContent">
+            <div class="col-md-6 offset-md-3 is-hide" id="formContent">
                 <div class="alert alert-danger is-hide" role="alert" id="alert">
                     Vous n'avez pas choisi un chiffre dans les limites autorisées
                 </div>
+                <div id="instructions"></div>
                 <div class="form-group">
                     <input type="number" class="form-control" placeholder="Votre nombre" id="proposition">
                 </div>
@@ -49,11 +50,15 @@
             <div class="col-md-6 offset-md-3 is-hide" id="listNumberContent">
                 <h4>Chiffres proposés</h4>
                 <ul class="list-group" id="listNumber">
-
-
                 </ul>
             </div>
 
+            <div class="col-md-6 offset-md-3 mt-5">
+                <h4>Classement</h4>
+                <ul class="list-group" id="charts">
+                </ul>
+                <button class="btn btn-primary mt-2" id="resetCookie">Reset du classement</button>
+            </div>
 
         </div>
     </div>
